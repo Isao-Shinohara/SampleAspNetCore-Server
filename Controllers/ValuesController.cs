@@ -6,15 +6,33 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SampleAspNetCore_Server.Controllers
 {
-    [Route("api/[controller]")]
+	[FormatFilter]
+	[Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+		// GET api/values
+		[HttpGet]
+		[Route("{format?}")]
+		public IActionResult Get()
+		{
+            var addClass = new Address
+			{
+                Country = "Japan",
+			};
+
+			var mc = new MyClass
+			{
+				Age = 99,
+				FirstName = "hoge",
+				LastName = "huga",
+				Address = addClass,
+			};
+
+			string json = Newtonsoft.Json.JsonConvert.SerializeObject(mc);
+			Console.WriteLine(json);
+
+			return Ok(mc);
+		}
 
         // GET api/values/5
         [HttpGet("{id}")]

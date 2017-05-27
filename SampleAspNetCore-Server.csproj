@@ -6,6 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MessagePack.ImmutableCollection" Version="1.2.3" />
