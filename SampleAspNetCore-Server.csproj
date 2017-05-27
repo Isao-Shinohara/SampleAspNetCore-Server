@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RuntimeFrameworkVersion>2.0.0-preview1-002111-00</RuntimeFrameworkVersion>
+    <UserSecretsId>aspnet-SampleAspNetCore_Server-439F5C23-8B00-4DE3-B8F3-8646C102568C</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MessagePack.ImmutableCollection" Version="1.2.3" />
+    <PackageReference Include="MessagePack.ReactiveProperty" Version="1.2.3" />
+    <PackageReference Include="MessagePack.UnityShims" Version="1.2.3" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0-preview1-final" />
+    <PackageReference Include="MessagePack" Version="1.2.3" />
+    <PackageReference Include="MessagePackAnalyzer" Version="1.6.0" />
+    <PackageReference Include="MessagePack.AspNetCoreMvcFormatter" Version="1.2.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0-preview1-final" />
+  </ItemGroup>
+</Project>
