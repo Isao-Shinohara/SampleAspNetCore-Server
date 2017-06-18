@@ -19,6 +19,7 @@ namespace SampleAspNetCore_Server
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+	            .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .UseUrls("http://0.0.0.0:8000")
                 .Build();

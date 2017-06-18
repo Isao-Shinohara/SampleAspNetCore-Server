@@ -4,7 +4,7 @@ WORKDIR /dotnetapp
 
 # copy project.json and restore as distinct layers
 COPY . .
-RUN dotnet restore
+RUN dotnet restore --configfile ./NuGet.Config
 
 # copy and build everything else
 #COPY . .

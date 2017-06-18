@@ -48,12 +48,18 @@ namespace SampleAspNetCore_Server
 				options.OutputFormatters.Add(new MessagePackOutputFormatter(ContractlessStandardResolver.Instance));
 				options.InputFormatters.Add(new MessagePackInputFormatter(ContractlessStandardResolver.Instance));
 			});
+
+			services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseMvc();
+			app.UseWebSockets();
+			app.UseSignalR();
+			app.UseDefaultFiles();
+			app.UseStaticFiles();
         }
     }
 }
