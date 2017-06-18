@@ -2,11 +2,9 @@
 
 WORKDIR /dotnetapp
 
-# copy project.json and restore as distinct layers
 COPY . .
-RUN dotnet restore --configfile ./NuGet.Config
+RUN dotnet restore
 
-# copy and build everything else
-#COPY . .
 RUN dotnet publish -c Release -o out
+
 ENTRYPOINT ["dotnet", "out/SampleAspNetCore-Server.dll"]
