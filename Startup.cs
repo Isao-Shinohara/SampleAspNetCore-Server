@@ -58,6 +58,8 @@ namespace SampleAspNetCore_Server
             app.UseMvc();
 			app.UseWebSockets();
 			app.UseSignalR();
+			app.UseDefaultFiles();
+			app.UseStaticFiles();
         }
     }
 }
