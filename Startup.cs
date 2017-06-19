@@ -28,6 +28,15 @@ namespace SampleAspNetCore_Server
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+			services.AddSignalR();
+			services.AddCors(options => {
+				options.AddPolicy("MyPolicy", builder => {
+					builder.AllowAnyOrigin()
+						   .AllowAnyMethod()
+						   .AllowAnyHeader();
+				});
+			});
+
 			// set extensions to default resolver.
 			MessagePack.Resolvers.CompositeResolver.RegisterAndSetAsDefault(
 				// enable extension packages first
@@ -48,14 +57,12 @@ namespace SampleAspNetCore_Server
 				options.OutputFormatters.Add(new MessagePackOutputFormatter(ContractlessStandardResolver.Instance));
 				options.InputFormatters.Add(new MessagePackInputFormatter(ContractlessStandardResolver.Instance));
 			});
-
-			services.AddSignalR();
-			services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+			app.UseCors("MyPolicy");
             app.UseMvc();
 			app.UseWebSockets();
 			app.UseSignalR();
