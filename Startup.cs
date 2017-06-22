@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using MessagePack.AspNetCoreMvcFormatter;
@@ -8,8 +9,11 @@ using MessagePack.ReactivePropertyExtension;
 using MessagePack.Resolvers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Net.Http.Headers;
@@ -62,12 +66,16 @@ namespace SampleAspNetCore_Server
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+			app.UseStaticFiles(new StaticFileOptions() {
+				ServeUnknownFileTypes = true,
+				DefaultContentType = "application/octet-stream"
+			});
+
 			app.UseCors("MyPolicy");
             app.UseMvc();
 			app.UseWebSockets();
 			app.UseSignalR();
 			app.UseDefaultFiles();
-			app.UseStaticFiles();
         }
     }
 }
