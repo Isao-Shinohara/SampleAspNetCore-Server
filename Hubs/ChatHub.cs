@@ -1,27 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
+﻿﻿using System;
+using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using System.Web;
 using Microsoft.AspNetCore.SignalR;
 
 namespace SignalRChat
 {
 	public class ChatHub : Hub
 	{
-		public static HashSet<string> ConnectedIds = new HashSet<string>();
+		private readonly SignalRContext signalRContext;
+
+		public ChatHub(SignalRContext context)
+		{
+			this.signalRContext = context;
+		}
 
 		public override Task OnConnected()
 		{
-			Console.WriteLine("OnConnected");
-			ConnectedIds.Add(Context.ConnectionId);
+			Console.WriteLine("OnConnected " + Context.ConnectionId);
+
+			if(!this.signalRContext.SignalRItemList.Any(item => item.ConnectionId == Context.ConnectionId)){
+				this.signalRContext.Update(new SignalRItem{ConnectionId = Context.ConnectionId});
+				this.signalRContext.SaveChanges();
+			}
+
 			return base.OnConnected();
 		}
 
 		public override Task OnDisconnected(bool stopCalled)
 		{
-			Console.WriteLine("OnDisconnected");
-			ConnectedIds.Remove(Context.ConnectionId);
+			Console.WriteLine("OnDisconnected " + Context.ConnectionId);
+
+			SignalRItem signalRItem = this.signalRContext.SignalRItemList.FirstOrDefault(item => item.ConnectionId == Context.ConnectionId);
+			if(signalRItem != null) {
+				this.signalRContext.Remove(signalRItem);
+				this.signalRContext.SaveChanges();
+			}
+
 			return base.OnDisconnected(stopCalled);
 		}
 

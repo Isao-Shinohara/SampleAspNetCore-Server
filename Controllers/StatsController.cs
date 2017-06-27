@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using SignalRChat;
 
 namespace SampleAspNetCore_Server.Controllers
 {
@@ -11,15 +8,21 @@ namespace SampleAspNetCore_Server.Controllers
 	[Route("api/[controller]")]
     public class StatsController : Controller
     {
+		private readonly SignalRContext signalRContext;
+
+		public StatsController(SignalRContext context)
+		{
+			this.signalRContext = context;
+		}
+
 		// GET api/values
 		[HttpGet]
 		[Route("{format?}")]
 		public IActionResult Get()
 		{
-			int connectionNum = ChatHub.ConnectedIds.Count();
-			Console.WriteLine(String.Format("Connection Num: {0}", connectionNum));
+			Console.WriteLine(String.Format("Connection Num: {0}", this.signalRContext.SignalRItemList.Count()));
 
-			return Ok(connectionNum);
+			return Ok(this.signalRContext.SignalRItemList.Count());
 		}
     }
 }

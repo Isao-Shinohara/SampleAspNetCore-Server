@@ -17,6 +17,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Net.Http.Headers;
+using Microsoft.EntityFrameworkCore;
 
 namespace SampleAspNetCore_Server
 {
@@ -61,6 +62,8 @@ namespace SampleAspNetCore_Server
 				options.OutputFormatters.Add(new MessagePackOutputFormatter(ContractlessStandardResolver.Instance));
 				options.InputFormatters.Add(new MessagePackInputFormatter(ContractlessStandardResolver.Instance));
 			});
+
+			services.AddDbContext<SignalRContext>(opt => opt.UseInMemoryDatabase("SampleAspNetCore"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
