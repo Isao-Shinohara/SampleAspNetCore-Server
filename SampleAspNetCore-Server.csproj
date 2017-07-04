@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <RuntimeFrameworkVersion>2.0.0-preview1-002111-00</RuntimeFrameworkVersion>
+    <RuntimeFrameworkVersion>2.0.0-preview2-25309-07</RuntimeFrameworkVersion>
     <UserSecretsId>aspnet-SampleAspNetCore_Server-439F5C23-8B00-4DE3-B8F3-8646C102568C</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
@@ -10,16 +10,16 @@
     <Folder Include="Hubs\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MessagePack.ImmutableCollection" Version="1.2.3" />
-    <PackageReference Include="MessagePack.ReactiveProperty" Version="1.2.3" />
-    <PackageReference Include="MessagePack.UnityShims" Version="1.2.3" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0-preview1-final" />
-    <PackageReference Include="MessagePack" Version="1.2.3" />
     <PackageReference Include="MessagePackAnalyzer" Version="1.6.0" />
-    <PackageReference Include="MessagePack.AspNetCoreMvcFormatter" Version="1.2.3" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Server" Version="0.2.0-rtm-22752" />
     <PackageReference Include="Microsoft.AspNetCore.WebSockets" Version="2.0.0-preview1-final" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.0.0-preview1-final" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Server" Version="0.2.0-preview2-22683" />
+    <PackageReference Include="MessagePack.ImmutableCollection" Version="1.4.1" />
+    <PackageReference Include="MessagePack.ReactiveProperty" Version="1.4.1" />
+    <PackageReference Include="MessagePack.UnityShims" Version="1.4.1" />
+    <PackageReference Include="MessagePack" Version="1.4.1" />
+    <PackageReference Include="MessagePack.AspNetCoreMvcFormatter" Version="1.4.1" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0-preview1-final" />
