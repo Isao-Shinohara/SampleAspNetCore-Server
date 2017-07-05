@@ -1,0 +1,6 @@
+#!/bin/bash
+cd /home/release
+DOTNET=/usr/local/bin/dotnet
+$DOTNET restore
+$DOTNET build
+nohup $DOTNET run kestrel > /dev/null 2>&1 &
