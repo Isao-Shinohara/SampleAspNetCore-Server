@@ -1,0 +1,5 @@
+#!/bin/bash
+cd /home/release
+dotnet restore
+dotnet build
+dotnet run
