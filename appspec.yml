@@ -4,15 +4,7 @@ files:
   - source: /
     destination: /home/release
 hooks:
-#  BeforeInstall:
-#    - location: scripts/install_dependencies
-#      timeout: 300
-#      runas: root
-  ApplicationStart
+  ApplicationStart:
     - location: CodeDeploy/start_server
       timeout: 300
       runas: root
-#  ApplicationStop:
-#    - location: CodeDeploy/stop_server
-#      timeout: 300
-#      runas: root
