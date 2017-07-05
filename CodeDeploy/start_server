@@ -1,5 +1,6 @@
 #!/bin/bash
 cd /home/release
-dotnet restore
-dotnet build
-dotnet run
+DOTNET=`which dotnet`
+$DOTNET restore
+$DOTNET build
+$DOTNET run
