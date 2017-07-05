@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /home/release
-DOTNET=`which dotnet`
+DOTNET=/usr/local/bin/dotnet
 $DOTNET restore
 $DOTNET build
 $DOTNET run
