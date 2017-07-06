@@ -7,4 +7,4 @@ LOG=/tmp/dotnet.log
 $DOTNET restore
 $DOTNET build
 $DOTNET publish -c Release
-$DOTNET $DLL > $LOG 2>&1
+$DOTNET $DLL > $LOG 2>&1 &
