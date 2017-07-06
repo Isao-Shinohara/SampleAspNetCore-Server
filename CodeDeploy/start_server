@@ -1,10 +1,6 @@
 #!/bin/bash
-cd /home/release
-DOTNET=/usr/local/bin/dotnet
-DLL=bin/Release/netcoreapp2.0/SampleAspNetCore-Server.dll
+IMAGE=isaoshinohara/sampleaspnetcore-server
+PORT=8000
 LOG=/tmp/dotnet.log
 
-$DOTNET restore
-$DOTNET build
-$DOTNET publish -c Release
-$DOTNET $DLL > $LOG 2>&1 &
+docker run -d -p $PORT:$PORT --rm $IMAGE > $LOG 2>&1
