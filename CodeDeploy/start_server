@@ -1,6 +1,10 @@
 #!/bin/bash
 cd /home/release
 DOTNET=/usr/local/bin/dotnet
+DLL=bin/Release/netcoreapp2.0/SampleAspNetCore-Server.dll
+LOG=/tmp/dotnet.log
+
 $DOTNET restore
 $DOTNET build
-$DOTNET run
+$DOTNET publish -c Release
+$DOTNET $DLL > $LOG 2>&1
