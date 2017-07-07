@@ -1,0 +1,6 @@
+#!/bin/bash
+PORT=8000
+IMAGE=isaoshinohara/sampleaspnetcore-server
+NAME=sampleaspnetcore-server
+
+docker run -d -p $PORT:$PORT --name $NAME --rm $IMAGE --name $NAME

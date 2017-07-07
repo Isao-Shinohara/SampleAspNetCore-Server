@@ -1,0 +1,4 @@
+#!/bin/bash
+NAME=sampleaspnetcore-server
+
+docker stop $NAME
