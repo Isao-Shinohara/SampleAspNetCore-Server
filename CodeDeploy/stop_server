@@ -1,4 +1,6 @@
 #!/bin/bash
 NAME=sampleaspnetcore-server
 
-docker stop $NAME
+if [ `docker ps | grep $NAME | wc -l` = 1 ]; then
+  docker stop $NAME
+fi
