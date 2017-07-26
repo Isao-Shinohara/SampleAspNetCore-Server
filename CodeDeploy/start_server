@@ -3,4 +3,5 @@ PORT=8000
 IMAGE=isaoshinohara/sampleaspnetcore-server
 NAME=sampleaspnetcore-server
 
+docker pull $IMAGE
 docker run -d -p $PORT:$PORT --name $NAME --rm $IMAGE --name $NAME
