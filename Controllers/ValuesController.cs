@@ -28,10 +28,8 @@ namespace SampleAspNetCore_Server.Controllers
 				Address = addClass,
 			};
 
-			string dateTime = DateTime.Now.ToString("yyyy-MM-d HH:mm:ss");
 			string json = Newtonsoft.Json.JsonConvert.SerializeObject(mc);
-
-			Console.WriteLine(String.Format("{0} {1}", dateTime, json));
+			Console.WriteLine(json);
 
 			return Ok(mc);
 		}
