@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{B2B53A9C-4D07-4380-B88C-E0AA7FD7725C}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
+    <Files>
+      <File FileName="Hubs/ChatHub.cs" Line="13" Column="32" />
+      <File FileName="Startup.cs" Line="22" Column="56" />
+      <File FileName="Controllers/ValuesController.cs" Line="12" Column="6" />
+      <File FileName="Program.cs" Line="21" Column="1" />
+      <File FileName="Controllers/StatsController.cs" Line="9" Column="36" />
+      <File FileName="Models/SignalRContext.cs" Line="5" Column="14" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
