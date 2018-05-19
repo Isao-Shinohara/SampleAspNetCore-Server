@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 
-namespace SignalRChat
+namespace SampleAspNetCore_Server.Hubs
 {
 	public class ChatHub : Hub
 	{
@@ -15,7 +15,7 @@ namespace SignalRChat
 			this.signalRContext = context;
 		}
 
-		public override Task OnConnected()
+		public override Task OnConnectedAsync()
 		{
 			Console.WriteLine("OnConnected " + Context.ConnectionId);
 
@@ -24,10 +24,10 @@ namespace SignalRChat
 				this.signalRContext.SaveChanges();
 			}
 
-			return base.OnConnected();
+			return base.OnConnectedAsync();
 		}
 
-		public override Task OnDisconnected(bool stopCalled)
+		public override Task OnDisconnectedAsync(Exception e)
 		{
 			Console.WriteLine("OnDisconnected " + Context.ConnectionId);
 
@@ -37,13 +37,13 @@ namespace SignalRChat
 				this.signalRContext.SaveChanges();
 			}
 
-			return base.OnDisconnected(stopCalled);
+			return base.OnDisconnectedAsync(e);
 		}
 
 		public void Send(string message)
 		{
 			Console.WriteLine(String.Format("[Called '{0}'] {1}", MethodBase.GetCurrentMethod().Name, message));
-			Clients.All.Recieve(message);
+			Clients.All.SendAsync(message);
 		}
 	}
 }

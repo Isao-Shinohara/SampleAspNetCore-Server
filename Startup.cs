@@ -1,27 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using MessagePack.AspNetCoreMvcFormatter;
+﻿using MessagePack.AspNetCoreMvcFormatter;
 using MessagePack.ImmutableCollection;
 using MessagePack.ReactivePropertyExtension;
 using MessagePack.Resolvers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Microsoft.Net.Http.Headers;
-using Microsoft.EntityFrameworkCore;
+using SampleAspNetCore_Server.Hubs;
 
 namespace SampleAspNetCore_Server
 {
-    public class Startup
+	public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -33,6 +26,7 @@ namespace SampleAspNetCore_Server
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+			services.AddMemoryCache();
 			services.AddSignalR();
 			services.AddCors(options => {
 				options.AddPolicy("MyPolicy", builder => {
@@ -77,7 +71,9 @@ namespace SampleAspNetCore_Server
 			app.UseCors("MyPolicy");
             app.UseMvc();
 			app.UseWebSockets();
-			app.UseSignalR();
+			app.UseSignalR(route => {
+				route.MapHub<ChatHub>("/chat");
+			});
 			app.UseDefaultFiles();
         }
     }

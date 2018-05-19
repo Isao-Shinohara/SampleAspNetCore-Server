@@ -1,17 +1,17 @@
 
-Microsoft Visual Studio Solution File, Format Version 15.00
-# Visual Studio 2017
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleAspNetCore-Server", "SampleAspNetCore-Server.csproj", "{B2B53A9C-4D07-4380-B88C-E0AA7FD7725C}"
 EndProject
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B2B53A9C-4D07-4380-B88C-E0AA7FD7725C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2B53A9C-4D07-4380-B88C-E0AA7FD7725C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2B53A9C-4D07-4380-B88C-E0AA7FD7725C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2B53A9C-4D07-4380-B88C-E0AA7FD7725C}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
+    GlobalSection(SolutionConfigurationPlatforms) = preSolution
+        Debug|Any CPU = Debug|Any CPU
+        Release|Any CPU = Release|Any CPU
+    EndGlobalSection
+    GlobalSection(ProjectConfigurationPlatforms) = postSolution
+        {6FFA51E0-18E3-4FBB-B568-39F29892210C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {6FFA51E0-18E3-4FBB-B568-39F29892210C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {6FFA51E0-18E3-4FBB-B568-39F29892210C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {6FFA51E0-18E3-4FBB-B568-39F29892210C}.Release|Any CPU.Build.0 = Release|Any CPU
+    EndGlobalSection
 EndGlobal
